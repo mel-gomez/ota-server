@@ -33,4 +33,4 @@ RUN php artisan key:generate || true
 EXPOSE 8080
 
 # Start both Nginx and PHP-FPM
-CMD sh -c "php-fpm -D && nginx -g 'daemon off;'"
+CMD sh -c "php-fpm -D && nginx -c /etc/nginx/nginx.conf -g 'daemon off;'"
