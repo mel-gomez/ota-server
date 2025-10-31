@@ -15,7 +15,7 @@ Route::get('/job-post', [JobPostController::class, 'index']);
 Route::get('/job-post/{jobPost}', [JobPostController::class, 'show']);
 Route::get('/external-job-post/{id}', [JobPostController::class, 'getExternalData']);
 Route::post('/job-post', [JobPostController::class, 'store']);
-Route::put('/job-post/{jobPost}', [JobPostController::class, 'update']);
+Route::patch('/job-post/{jobPost}', [JobPostController::class, 'update']);
 Route::get('/moderator-notifications', [ModeratorNotificationController::class, 'index']);
 Route::get('/ext-job-post', function() {
     try {
