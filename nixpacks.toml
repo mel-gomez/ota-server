@@ -1,0 +1,20 @@
+[phases.setup]
+cmds = [
+    "apt-get update",
+    "apt-get install -y nginx",
+    "curl -s https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer",
+    "composer install --no-dev --optimize-autoloader"
+]
+
+[phases.build]
+cmds = [
+    "php artisan config:cache",
+    "php artisan route:cache",
+    "php artisan view:cache"
+]
+
+[start]
+cmd = "sh -c 'php-fpm -D && nginx -c /app/nginx.conf -g \"daemon off;\"'"
+
+[environment]
+PORT = "8080"
